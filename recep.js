@@ -14,7 +14,7 @@ import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/fire
 
 // Firebase configuration 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY_HERE",
+  apiKey: "AIzaSyBO_yFXk_8zi-9VqvOwcau9QUDsTxznx5U",
   authDomain: "clinic-manage-app.firebaseapp.com",
   databaseURL: "https://clinic-manage-app-default-rtdb.firebaseio.com",
   projectId: "clinic-manage-app",
