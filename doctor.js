@@ -13,7 +13,7 @@ import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/fire
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBO_yFXk_8zi-9VqvOwcau9QUDsTxznx5U",
+  apiKey: "AIzaSyDeKTBvEvEkFnbu1FvcTMp_067hXrFiWtA",
   authDomain: "clinic-manage-app.firebaseapp.com",
   databaseURL: "https://clinic-manage-app-default-rtdb.firebaseio.com",
   projectId: "clinic-manage-app",
@@ -22,6 +22,7 @@ const firebaseConfig = {
   appId: "1:4062099599:web:ced32b0afa10e9efaa18fa",
   measurementId: "G-Y3YBXEYJ5L"
 };
+
 
 
 const app = initializeApp(firebaseConfig);
