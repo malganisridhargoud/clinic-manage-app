@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receptionist Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <h1>Receptionist Dashboard</h1>
+      <button id="logout-btn">Logout</button>
+    </header>
+
+    <!-- Patient Registration Section -->
+    <section class="patient-registration">
+      <h2>Patient Registration</h2>
+      <form id="patient-registration-form">
+        <input type="text" id="patient-name" placeholder="Patient Name" required />
+        <input type="number" id="patient-age" placeholder="Patient Age" required />
+        <input type="text" id="patient-contact" placeholder="Contact Number" required />
+        <!-- Allotted Doctor Dropdown -->
+        <label for="doctor-select">Select Doctor</label>
+        <select id="doctor-select" required>
+          <option value="">--Select Doctor--</option>
+          <option value="DOC01">DOC01</option>
+          <option value="DOC02">DOC02</option>
+          <option value="DOC03">DOC03</option>
+          <option value="DOC04">DOC04</option>
+          <option value="DOC05">DOC05</option>
+          <option value="DOC06">DOC06</option>
+          <option value="DOC07">DOC07</option>
+          <option value="DOC08">DOC08</option>
+          <option value="DOC09">DOC09</option>
+          <option value="DOC10">DOC10</option>
+        </select>
+        <button type="submit">Register Patient</button>
+      </form>
+    </section>
+
+    <!-- Allotted Doctor Section -->
+    <section id="allotted-doctor-section" style="display: none;">
+      <h2>Allotted Doctor: <span id="doctor-name">Doctor Name</span></h2>
+      <h3>Patients under this doctor:</h3>
+      <table id="patient-table">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="patient-list-body"></tbody>
+      </table>
+    </section>
+
+    <!-- Generate Hospital Bill Section -->
+    <section id="bill-generation-section" style="display: none;">
+      <h2>Generate Hospital Bill</h2>
+      <form id="bill-form">
+        <input type="text" id="bill-patient-token" placeholder="Patient Token" readonly />
+        <label for="consultation-fee">Consultation Fee</label>
+        <input type="number" id="consultation-fee" required />
+        <label for="lab-fee">Lab Fee</label>
+        <input type="number" id="lab-fee" required />
+        <label for="medicine-charges">Medicine Charges</label>
+        <input type="number" id="medicine-charges" required />
+        <label for="other-charges">Other Charges</label>
+        <input type="number" id="other-charges" required />
+        <label for="total-amount">Total Amount</label>
+        <input type="number" id="total-amount" required />
+        <button type="submit">Save Bill</button>
+        <button type="button" id="cancel-bill">Cancel</button>
+      </form>
+    </section>
+
+    <!-- View Bill Details Section -->
+    <section id="bill-details-section" style="display: none;">
+      <h2>View Bill Details</h2>
+      <form id="bill-details-form">
+        <input type="text" id="view-bill-patient-token" placeholder="Patient Token" readonly />
+        <label for="view-consultation-fee">Consultation Fee</label>
+        <input type="number" id="view-consultation-fee" readonly />
+        <label for="view-lab-fee">Lab Fee</label>
+        <input type="number" id="view-lab-fee" readonly />
+        <label for="view-medicine-charges">Medicine Charges</label>
+        <input type="number" id="view-medicine-charges" readonly />
+        <label for="view-other-charges">Other Charges</label>
+        <input type="number" id="view-other-charges" readonly />
+        <label for="view-total-amount">Total Amount</label>
+        <input type="number" id="view-total-amount" readonly />
+        <label for="view-bill-date">Bill Date</label>
+        <input type="text" id="view-bill-date" readonly />
+        <button type="button" id="close-bill-details">Close</button>
+      </form>
+    </section>
+
+    <!-- Doctor Search Section -->
+    <section id="doctor-search-section">
+      <h2>Search Patients by Doctor</h2>
+      <select id="doctor-search-select">
+        <option value="">--Select Doctor--</option>
+        <option value="DOC01">DOC01</option>
+        <option value="DOC02">DOC02</option>
+        <option value="DOC03">DOC03</option>
+        <option value="DOC04">DOC04</option>
+        <option value="DOC05">DOC05</option>
+        <option value="DOC06">DOC06</option>
+        <option value="DOC07">DOC07</option>
+        <option value="DOC08">DOC08</option>
+        <option value="DOC09">DOC09</option>
+        <option value="DOC10">DOC10</option>
+      </select>
+      <button id="doctor-search-btn">Search</button>
+    </section>
+
+    <!-- Doctor Search Result Section -->
+    <section id="doctor-search-result" style="display: none;">
+      <h2>Patients Under Doctor: <span id="searched-doctor-name"></span></h2>
+      <table id="search-patient-table">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="search-patient-list-body"></tbody>
+      </table>
+    </section>
+  </div>
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js"></script>
+  <script type="module" src="recep.js"></script>
+</body>
+</html>
