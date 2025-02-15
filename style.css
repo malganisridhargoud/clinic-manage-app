@@ -1,0 +1,262 @@
+:root {
+    /* Color Palette */
+    --primary-color: #2c3e50;      /* Dark blue-gray */
+    --secondary-color: #3498db;    /* Bright blue */
+    --accent-color: #2ecc71;       /* Green for success */
+    --warning-color: #e74c3c;      /* Red for errors */
+    --background-color: #ecf0f1;   /* Light gray-white */
+    --text-color: #333;
+    --card-background: #ffffff;
+
+    /* Transitions */
+    --transition-speed: 0.3s;
+}
+
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all var(--transition-speed) ease;
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Layout Containers */
+.dashboard-container, 
+.login-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--card-background);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Button Styles */
+.btn, 
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: 
+        background-color var(--transition-speed),
+        transform var(--transition-speed);
+}
+
+.btn:hover, 
+button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:active, 
+button:active {
+    transform: translateY(1px);
+}
+
+/* Form Styling */
+.login-form,
+#patient-registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, 
+select, 
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: 
+        border-color var(--transition-speed),
+        box-shadow var(--transition-speed);
+}
+
+input:focus, 
+select:focus, 
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+    transition: background-color var(--transition-speed);
+}
+
+/* Alert and Error Styling */
+.error {
+    color: var(--warning-color);
+    text-align: center;
+    margin-top: 10px;
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 90% { transform: translateX(-5px); }
+    20%, 80% { transform: translateX(5px); }
+    30%, 50%, 70% { transform: translateX(-5px); }
+    40%, 60% { transform: translateX(5px); }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .dashboard-container, 
+    .login-container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+}
+
+/* Patient Status Coloring */
+.status-waiting {
+    color: var(--secondary-color);
+}
+
+.status-examined {
+    color: var(--accent-color);
+}
+
+.status-error {
+    color: var(--warning-color);
+}
+
+/* Hover and Interactive Elements */
+.patient-list tr:hover {
+    background-color: rgba(46, 204, 113, 0.05);
+    cursor: pointer;
+}
+
+/* Logout Button Special Styling */
+#logout-btn {
+    background-color: var(--warning-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#logout-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Subtle Element Animations */
+.animate-slide-in {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Loading and Skeleton Screens */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255,255,255,0.3), 
+        transparent
+    );
+    transform: translateX(-100%);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    100% {
+        transform: translateX(100%);
+    }
+}
